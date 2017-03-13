@@ -1,9 +1,158 @@
 <html>
+
 <head>
 	<title>Mars Rover Kata!</title>
 	<script type="text/javascript" src="rover.js"></script>
+	<script type="text/javascript" src="keyactions.js"></script>
+	<link rel="stylesheet" href="./styles.css">
 </head>
-<body>
 
+<body>
+	<div id="direction1">Rover 1 direction is: N</div>
+	<div id="position1">Rover 1 position is: [0,0]</div>
+	<div id="direction2">Rover 2 direction is: S</div>
+	<div id="position2">Rover 2 position is: [9,9]</div>
+	<div class="instructions"> Rover 1:
+		<ul>
+			Press up arrow to make the rover go forward, press down arrow to make the rover go backward. Press left or right arrow to change the rover's direction.
+		</ul>
+		<ul>
+			To execute a series of commands, call commandArrayHandler(['f', 'f', 'r', 'f', 'f', 'r', 'f'], myRover);
+		</ul>
+		<div class="instructions"> Rover 2:
+			<ul>
+				Use WASD for controls.
+			</ul>
+			<ul>
+				To execute a series of commands, call commandArrayHandler(['f', 'f', 'r', 'f', 'f', 'r', 'f'], myRover2);
+			</ul>
+
+	</div>
+	<div class="divTable">
+		<div class="divTableBody">
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,9]">&nbsp;</div>
+				<div class="divTableCell" id="[1,9]">&nbsp;</div>
+				<div class="divTableCell" id="[2,9]">&nbsp;</div>
+				<div class="divTableCell" id="[3,9]">&nbsp;</div>
+				<div class="divTableCell" id="[4,9]">&nbsp;</div>
+				<div class="divTableCell" id="[5,9]">&nbsp;</div>
+				<div class="divTableCell" id="[6,9]">&nbsp;</div>
+				<div class="divTableCell" id="[7,9]">&nbsp;</div>
+				<div class="divTableCell" id="[8,9]">&nbsp;</div>
+				<div class="divTableCell roverPosition2" id="[9,9]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,8]">&nbsp;</div>
+				<div class="divTableCell" id="[1,8]">&nbsp;</div>
+				<div class="divTableCell" id="[2,8]">&nbsp;</div>
+				<div class="divTableCell" id="[3,8]">&nbsp;</div>
+				<div class="divTableCell obstacle" id="[4,8]">&nbsp;</div>
+				<div class="divTableCell" id="[5,8]">&nbsp;</div>
+				<div class="divTableCell" id="[6,8]">&nbsp;</div>
+				<div class="divTableCell" id="[7,8]">&nbsp;</div>
+				<div class="divTableCell" id="[8,8]">&nbsp;</div>
+				<div class="divTableCell" id="[9,8]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,7]">&nbsp;</div>
+				<div class="divTableCell" id="[1,7]">&nbsp;</div>
+				<div class="divTableCell" id="[2,7]">&nbsp;</div>
+				<div class="divTableCell" id="[3,7]">&nbsp;</div>
+				<div class="divTableCell" id="[4,7]">&nbsp;</div>
+				<div class="divTableCell" id="[5,7]">&nbsp;</div>
+				<div class="divTableCell" id="[6,7]">&nbsp;</div>
+				<div class="divTableCell" id="[7,7]">&nbsp;</div>
+				<div class="divTableCell" id="[8,7]">&nbsp;</div>
+				<div class="divTableCell" id="[9,7]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,6]">&nbsp;</div>
+				<div class="divTableCell" id="[1,6]">&nbsp;</div>
+				<div class="divTableCell" id="[2,6]">&nbsp;</div>
+				<div class="divTableCell" id="[3,6]">&nbsp;</div>
+				<div class="divTableCell" id="[4,6]">&nbsp;</div>
+				<div class="divTableCell" id="[5,6]">&nbsp;</div>
+				<div class="divTableCell" id="[6,6]">&nbsp;</div>
+				<div class="divTableCell" id="[7,6]">&nbsp;</div>
+				<div class="divTableCell obstacle" id="[8,6]">&nbsp;</div>
+				<div class="divTableCell" id="[9,6]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,5]">&nbsp;</div>
+				<div class="divTableCell" id="[1,5]">&nbsp;</div>
+				<div class="divTableCell obstacle" id="[2,5]">&nbsp;</div>
+				<div class="divTableCell" id="[3,5]">&nbsp;</div>
+				<div class="divTableCell" id="[4,5]">&nbsp;</div>
+				<div class="divTableCell" id="[5,5]">&nbsp;</div>
+				<div class="divTableCell" id="[6,5]">&nbsp;</div>
+				<div class="divTableCell" id="[7,5]">&nbsp;</div>
+				<div class="divTableCell" id="[8,5]">&nbsp;</div>
+				<div class="divTableCell" id="[9,5]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,4]">&nbsp;</div>
+				<div class="divTableCell" id="[1,4]">&nbsp;</div>
+				<div class="divTableCell" id="[2,4]">&nbsp;</div>
+				<div class="divTableCell" id="[3,4]">&nbsp;</div>
+				<div class="divTableCell" id="[4,4]">&nbsp;</div>
+				<div class="divTableCell" id="[5,4]">&nbsp;</div>
+				<div class="divTableCell" id="[6,4]">&nbsp;</div>
+				<div class="divTableCell" id="[7,4]">&nbsp;</div>
+				<div class="divTableCell" id="[8,4]">&nbsp;</div>
+				<div class="divTableCell" id="[9,4]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,3]">&nbsp;</div>
+				<div class="divTableCell" id="[1,3]">&nbsp;</div>
+				<div class="divTableCell" id="[2,3]">&nbsp;</div>
+				<div class="divTableCell" id="[3,3]">&nbsp;</div>
+				<div class="divTableCell" id="[4,3]">&nbsp;</div>
+				<div class="divTableCell" id="[5,3]">&nbsp;</div>
+				<div class="divTableCell" id="[6,3]">&nbsp;</div>
+				<div class="divTableCell" id="[7,3]">&nbsp;</div>
+				<div class="divTableCell" id="[8,3]">&nbsp;</div>
+				<div class="divTableCell" id="[9,3]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,2]">&nbsp;</div>
+				<div class="divTableCell" id="[1,2]">&nbsp;</div>
+				<div class="divTableCell" id="[2,2]">&nbsp;</div>
+				<div class="divTableCell" id="[3,2]">&nbsp;</div>
+				<div class="divTableCell" id="[4,2]">&nbsp;</div>
+				<div class="divTableCell obstacle" id="[5,2]">&nbsp;</div>
+				<div class="divTableCell" id="[6,2]">&nbsp;</div>
+				<div class="divTableCell" id="[7,2]">&nbsp;</div>
+				<div class="divTableCell" id="[8,2]">&nbsp;</div>
+				<div class="divTableCell" id="[9,2]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell" id="[0,1]">&nbsp;</div>
+				<div class="divTableCell" id="[1,1]">&nbsp;</div>
+				<div class="divTableCell" id="[2,1]">&nbsp;</div>
+				<div class="divTableCell" id="[3,1]">&nbsp;</div>
+				<div class="divTableCell" id="[4,1]">&nbsp;</div>
+				<div class="divTableCell" id="[5,1]">&nbsp;</div>
+				<div class="divTableCell" id="[6,1]">&nbsp;</div>
+				<div class="divTableCell" id="[7,1]">&nbsp;</div>
+				<div class="divTableCell" id="[8,1]">&nbsp;</div>
+				<div class="divTableCell" id="[9,1]">&nbsp;</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell roverPosition1" id="[0,0]">&nbsp;</div>
+				<div class="divTableCell" id="[1,0]">&nbsp;</div>
+				<div class="divTableCell" id="[2,0]">&nbsp;</div>
+				<div class="divTableCell" id="[3,0]">&nbsp;</div>
+				<div class="divTableCell" id="[4,0]">&nbsp;</div>
+				<div class="divTableCell" id="[5,0]">&nbsp;</div>
+				<div class="divTableCell" id="[6,0]">&nbsp;</div>
+				<div class="divTableCell" id="[7,0]">&nbsp;</div>
+				<div class="divTableCell" id="[8,0]">&nbsp;</div>
+				<div class="divTableCell" id="[9,0]">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- DivTable.com -->
 </body>
+
 </html>
